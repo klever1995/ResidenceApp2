@@ -1,9 +1,10 @@
-name: Deploy Microservice to EC2
+name: Deploy Microservice to EC2 on PR to Main
 
 on:
-  push:
+  pull_request:
     branches:
-      - test  
+      - main
+    types: [opened, synchronize, reopened]  
 
 jobs:
   build_and_push_image:
