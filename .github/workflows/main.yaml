@@ -3,7 +3,7 @@ name: Deploy Microservice to EC2
 on:
   push:
     branches:
-      - main  # Cambia a la rama que uses para producción
+      - main  
 
 jobs:
   build_and_push_image:
@@ -26,7 +26,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./BackEnd/Users/Students/read_student  # Ruta al microservicio
+          context: ./BackEnd  
+          file: ./BackEnd/Users/Students/read_student/Dockerfile 
           push: true
           tags: ksrobalino/microservicio-read-student:latest
 
@@ -44,7 +45,7 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: ${{ secrets.EC2_HOST }}  # IP o DNS de tu instancia EC2
+          host: ${{ secrets.EC2_HOST }} 
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
