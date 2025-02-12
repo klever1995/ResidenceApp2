@@ -26,7 +26,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./BackEnd/Users/Students/read_student  # Ruta al microservicio
           push: true
           tags: ksrobalino/microservicio-read-student:latest
 
