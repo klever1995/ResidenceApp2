@@ -1,0 +1,20 @@
+# Usa una imagen base de Node.js
+FROM node:18
+
+# Define el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copia los archivos de package.json y package-lock.json correctamente
+COPY package.json package-lock.json ./
+
+# Instala las dependencias
+RUN npm install
+
+# Copia solo la carpeta del servicio que necesitas
+COPY Users/Students/read_student/ ./
+
+# Expone el puerto
+EXPOSE 6002
+
+# Comando para ejecutar la aplicación
+CMD ["node", "index.js"]
