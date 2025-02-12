@@ -12,7 +12,7 @@ app.use(cors()); // This will allow requests from any source
 // Path to get all users
 app.get('/rstudents', async (req, res) => {
   try {
-    const [rows] = await db.query('SELECT * FROM Students');
+    const [rows] = await db.query('SELECT * FROM students');
     res.status(200).json(rows);
   } catch (error) {
     console.error('Error al obtener a los usuarios estudiantes:', error);
