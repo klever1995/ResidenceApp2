@@ -60,9 +60,9 @@ jobs:
               echo "Docker instalado correctamente."
             else
               echo "Docker ya está instalado."
-            fi
+            fi  
 
-            # Detener y eliminar el contenedor del frontend si existe
+            # Detener y eliminar el contenedor del frontend si existe.
             sudo docker stop frontend-react || true
             sudo docker rm frontend-react || true
 
