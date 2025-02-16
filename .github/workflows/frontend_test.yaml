@@ -23,11 +23,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Frontend
+      - name: Build and push frontend
         uses: docker/build-push-action@v5
         with:
-          context: ./FrontEnd  
-          file: ./FrontEnd/Dockerfile  
+          context: ./frontend  
+          file: ./frontend/Dockerfile  
           push: true
           tags: tu-usuario-dockerhub/frontend-react:latest
 
