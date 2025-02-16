@@ -29,7 +29,7 @@ jobs:
           context: ./frontend  
           file: ./frontend/Dockerfile  
           push: true
-          tags: tu-usuario-dockerhub/frontend-react:latest
+          tags: ksrobalino/frontend-react:latest
 
   deploy_frontend_to_ec2:
     name: Deploy Frontend to EC2
@@ -67,7 +67,7 @@ jobs:
             sudo docker rm frontend-react || true
 
             # Descargar la imagen más reciente del frontend
-            sudo docker pull tu-usuario-dockerhub/frontend-react:latest
+            sudo docker pull ksrobalino/frontend-react:latest
 
             # Ejecutar el frontend
-            sudo docker run -d --name frontend-react -p 80:80 tu-usuario-dockerhub/frontend-react:latest
+            sudo docker run -d --name frontend-react -p 80:80 ksrobalino/frontend-react:latest
